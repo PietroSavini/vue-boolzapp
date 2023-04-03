@@ -1,6 +1,7 @@
 
-const {createApp} = Vue;
 
+const {createApp} = Vue;
+ 
 createApp({
     data(){
         return{
@@ -168,7 +169,17 @@ createApp({
                 }
             ]
         }
-    }
+       
+    },
+    methods:{
+        //funzione per troncare i messaggi troppo lunghi nella preview dei contatti
+        tronca(message, maxLength){
+            if (message.length > maxLength) {
+              return message.slice(0 , maxLength)+ '...'
+            }
+            return message;
+          }
+    },
 }).mount("#app")
 
 

@@ -45,7 +45,16 @@
                 <!-- /search bar -->
 
                 <!-- contacts list -->
-
+                    <div v-for="contact in contacts" class="cnt-row cnts">
+                        <div class="contact-img">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
+                        </div>
+                        <div class="contact-info">
+                            <h2>{{contact.name}}</h2>
+                            <p >{{ tronca(contact.messages[contact.messages.length - 1].message,35) }}</p>
+                        </div>
+                        <p class="hour">12.00</p>
+                    </div>
                 <!-- /contacts list -->
 
             </div>
