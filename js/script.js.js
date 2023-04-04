@@ -5,7 +5,9 @@ const {createApp} = Vue;
 createApp({
     data(){
         return{
+            newMessage:"",
             activeIndex : 0,
+            newActiveIndex : 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -174,7 +176,7 @@ createApp({
     },
     methods:{
         //funzione per troncare i messaggi troppo lunghi nella preview dei contatti
-        antonio(message, maxLength){
+        messageCrop(message, maxLength){
             if (message.length > maxLength) {
               return message.slice(0 , maxLength)+ '...'
             }
@@ -183,9 +185,31 @@ createApp({
 
         activeIndexCreator(index){
             this.activeIndex = index;
-            console.log(this.activeIndex)
-        }
+        },
 
+        sendMessage(){
+            const messageInput = this.newMessage;
+            const newObjMessage = {
+                    date: '10/01/2020 15:30:55',
+                    message: messageInput,
+                    status: 'sent'
+                }
+            this.contacts[this.activeIndex].messages.push(newObjMessage);
+            this.newMessage="";
+            this.newActiveIndex = this.activeIndex;
+            //ATTENZIONE---------------------------------------------------------------------------------------------
+            //ho provato a generare la funzione all esterno di setTimeout e richiamandola in seguito, la funzione è la stessa contenuta all interno.. solo che richiamandola non funzionava
+            setTimeout(()=>{
+                const actualIndex = this.newActiveIndex
+                const response = "ok va bene";
+                const responseObj = {
+                    date: '10/01/2020 15:30:55',
+                    message: response,
+                    status: 'received',
+                }
+                this.contacts[actualIndex].messages.push(responseObj);
+            }, 2000 );
+        },
     },
 }).mount("#app")
 

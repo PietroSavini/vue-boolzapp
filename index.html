@@ -63,7 +63,7 @@
                         </div>
                         <div class="contact-info">
                             <h2>{{ contact.name }}</h2>
-                            <p>{{ antonio(contact.messages[contact.messages.length - 1].message,35) }}</p>
+                            <p>{{ messageCrop(contact.messages[contact.messages.length -1].message,35) }}</p>
                         </div>
                         <p class="hour">12.00</p>
                     </div>
@@ -110,7 +110,7 @@
                         <a href=""><i class="fa-regular fa-face-smile"></i></a>
                     </div>
                     <div class="message-input fl">
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input @keyup.enter="sendMessage()" v-model="newMessage" type="text" placeholder="Scrivi un messaggio">
                     </div>
                     <div class="interactions fl">
                         <a href=""><i class="fa-solid fa-microphone"></i></a>
