@@ -8,6 +8,7 @@
 img{
     max-width: 100%;
 }
+
 /* common ----------------------------------------------------------------------*/
 body{
     font-family: sans-serif;
@@ -28,9 +29,22 @@ body{
     min-width: 900px;
     max-width: 1500px;
     height: 90%;
-    min-height: 600px;
+    max-height: 1000px;
+    min-height: 450px;
     box-shadow: 0px 0px 10px rgba(0,0,0,.5);
     margin: 0 auto;
+}
+
+.actions{
+    list-style-type: none;
+    height: 100%;
+    align-items: center;
+}
+
+.actions li a{
+    margin-right: 10px;
+    font-size: 15px;
+    text-decoration: none;
 }
 
 /* flex util. */
@@ -48,11 +62,6 @@ h3{
 a{
     font-size: .7rem;
     color: #B1B1B1;
-}
-
-header,
-footer{
-    color: #B1B1B1 ;
 }
 
 h2{
@@ -73,7 +82,7 @@ p{
 .left{
     width: 30%;
     background-color: #fff;
-    border-right: 1px solid grey;
+    border-right: 1px solid #f1f1f1;
     flex-direction: column;
     color: #B1B1B1;
 }
@@ -81,15 +90,17 @@ p{
 .right{
     width: 70%;
     flex-direction: column;
-    background-color: #EAEAEA
+    background-color: #EAEAEA;
 }
 
 /* common components */
 .header{
     height: 80px;
-    background-color: #EAEAEA  ;
-    /* debug */
-    border: 1px solid blue;
+    min-height: 80px;
+    background-color: #EAEAEA;
+    align-items: center;
+    padding: .5rem .5rem;
+    justify-content: space-between;
 }
 
 main{
@@ -99,10 +110,8 @@ main{
 }
 
 .right footer{
-    height: 60px;
+    height: 80px;
     width: 100%;
-    /* debug */
-    border: 1px solid black;
 }
 
 .cnt-row{
@@ -111,6 +120,21 @@ main{
 }
 
 /* left column internal layout & Styling----------------------------------------- */
+/* user info */
+.user-info{
+    align-items: center;
+}
+
+.img{
+    min-width: 50px;
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
 /* call to action */
 .cta{
     background-color: #8EDAFC;
@@ -165,6 +189,10 @@ main{
 }
 
 /* contact list */
+.contact-list{
+    height: 100%;
+    overflow-y: auto;
+}
 .contact-img{
     min-width: 50px;
     width: 50px; 
@@ -181,4 +209,14 @@ main{
 
 .cnts{
     border-bottom: 1px solid #f1f1f1;
+}
+
+/* main styling ------------------------------------------------------------------------- */
+.contact-info p{
+    font-size: 15px;
+    color: #B1B1B1;
+}
+
+.active {
+    background-color: #E9EBEB ;
 }

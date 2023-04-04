@@ -5,6 +5,7 @@ const {createApp} = Vue;
 createApp({
     data(){
         return{
+            activeIndex : 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -173,12 +174,18 @@ createApp({
     },
     methods:{
         //funzione per troncare i messaggi troppo lunghi nella preview dei contatti
-        tronca(message, maxLength){
+        antonio(message, maxLength){
             if (message.length > maxLength) {
               return message.slice(0 , maxLength)+ '...'
             }
             return message;
-          }
+        },
+
+        activeIndexCreator(index){
+            this.activeIndex = index;
+            console.log(this.activeIndex)
+        }
+
     },
 }).mount("#app")
 

@@ -10,7 +10,7 @@
     <!-- cumstom style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- vueJs CDN -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.min.js"></script>
 </head>
 <body>
     <!-- vueJs app -->
@@ -21,7 +21,18 @@
             <div class="left col fl">
                 <!-- headaer -->
                 <div class="contacts header fl">
+                        <div class="user-info fl">
+                            <div class="img">
+                                <img src="img/avatar_io.jpg" alt="">
+                            </div>
+                            <h2>Sofia</h2>
+                        </div>
 
+                        <ul class="actions fl">
+                            <li><a href=""><i class="fa-solid fa-circle-notch"></i></a></li>
+                            <li><a href=""><i class="fa-solid fa-message"></i></a></li>
+                            <li><a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+                        </ul>
                 </div>
                 <!-- /header -->
 
@@ -45,22 +56,43 @@
                 <!-- /search bar -->
 
                 <!-- contacts list -->
-                    <div v-for="contact in contacts" class="cnt-row cnts">
+                <div class="contact-list">
+                    <div v-for="(contact, index) in contacts" @click ="activeIndexCreator(index)" :class="activeIndex === index ? 'active': '' " class="cnt-row cnts">
                         <div class="contact-img">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
                         </div>
                         <div class="contact-info">
-                            <h2>{{contact.name}}</h2>
-                            <p >{{ tronca(contact.messages[contact.messages.length - 1].message,35) }}</p>
+                            <h2>{{ contact.name }}</h2>
+                            <p>{{ antonio(contact.messages[contact.messages.length - 1].message,35) }}</p>
                         </div>
                         <p class="hour">12.00</p>
                     </div>
+                </div>
                 <!-- /contacts list -->
 
             </div>
             <!-- /left "contacts" column -->
             <div class="right fl col">
-                <div class="header fl"></div>
+                <div class="header fl">
+
+                    <div class="cnt-row">
+                        <div class="contact-img">
+                            <img :src="`img/avatar${contacts[activeIndex].avatar}.jpg`" alt="">
+                        </div>
+
+                        <div class="contact-info">
+                            <h2>{{ contacts[activeIndex].name }}</h2>
+                            <p>Ultimo accesso oggi alle 12.00</p>
+                        </div>
+                    </div>
+
+                    <ul class="actions fl">
+                        <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                        <li><a href=""><i class="fa-solid fa-paperclip"></i></a></li>
+                        <li><a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+                    </ul>
+
+                </div>
                 <main>
 
                 </main>
