@@ -107,6 +107,7 @@ main{
     flex-grow: 1;
     background-image: url(../img/mine.jpg);
     overflow-y: auto;
+    padding: 1.5rem 1rem;
 }
 
 .right footer{
@@ -209,6 +210,7 @@ main{
 
 .cnts{
     border-bottom: 1px solid #f1f1f1;
+    cursor: pointer;
 }
 
 /* main styling ------------------------------------------------------------------------- */
@@ -220,3 +222,81 @@ main{
 .active {
     background-color: #E9EBEB ;
 }
+
+.message{
+    display: inline-block;
+    min-width: 20%;
+    max-width: 60%;
+    min-height: 50px;
+    word-wrap: break-word;
+    padding: .5rem .8rem;
+    justify-content: space-between;
+    border-radius: 13px;
+}
+
+.message-row{
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+
+.message .date{
+    text-align: right;
+    color: #B1B1B1;
+}
+
+.sent{
+    background-color: #D5F9BA;
+    align-self: end;
+    text-align: left;
+}
+
+.reciv{
+    background-color: #fff;
+    align-self: start;
+    text-align: right;
+}
+
+.sent span{
+    margin-right: 60px;
+}
+
+.reciv span{
+    margin-right: 60px;
+}
+
+/* user interactions-------------------------------------------------------------------- */
+footer{
+    padding: .5rem .8rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer>div{
+    height: 100%;
+}
+
+.interactions{
+    width: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+.interactions a{
+    font-size: 25px;
+}
+
+.message-input{
+    flex-grow: 1;
+    align-items: center;
+}
+
+.message-input input{
+    height: 40px;
+    width: 100%;
+    outline: 0;
+    border-style: none;
+    padding: 0 .8rem;
+    border-radius: 8px;
+}
+

@@ -72,14 +72,16 @@
 
             </div>
             <!-- /left "contacts" column -->
+
+            <!-- main content and chat screen -->
             <div class="right fl col">
+                <!-- main cintent header -->
                 <div class="header fl">
 
                     <div class="cnt-row">
                         <div class="contact-img">
                             <img :src="`img/avatar${contacts[activeIndex].avatar}.jpg`" alt="">
                         </div>
-
                         <div class="contact-info">
                             <h2>{{ contacts[activeIndex].name }}</h2>
                             <p>Ultimo accesso oggi alle 12.00</p>
@@ -93,13 +95,30 @@
                     </ul>
 
                 </div>
-                <main>
-
+                <!-- /main content header -->
+                <main >
+                    <div class="message-row fl" v-for="message in contacts[activeIndex].messages ">
+                        <div class="message" :class="message.status === 'received' ? 'reciv' : 'sent'">
+                            <span>{{ message.message }}</span>
+                            <p class="date">15:30</p>
+                        </div>
+                    </div>
                 </main>
-                <footer>
-
+                <!-- user input -->
+                <footer class="fl">
+                    <div class="interactions fl">
+                        <a href=""><i class="fa-regular fa-face-smile"></i></a>
+                    </div>
+                    <div class="message-input fl">
+                        <input type="text" placeholder="Scrivi un messaggio">
+                    </div>
+                    <div class="interactions fl">
+                        <a href=""><i class="fa-solid fa-microphone"></i></a>
+                    </div>
                 </footer>
+                <!-- /user input -->
             </div>
+            <!--/ main content and chat screen -->
         </div>
     </div>
     <!-- my script -->
