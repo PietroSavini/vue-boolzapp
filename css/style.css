@@ -74,7 +74,7 @@ p{
     font-size: .7rem;
     margin-top: .2rem;
 }
-/* layout----------------------------------------------------------------------- */
+/* layout------------------------------------------------------------------------------ */
 .col{
     height: 100%;
 }
@@ -120,7 +120,7 @@ main{
     padding: .3rem .5rem;
 }
 
-/* left column internal layout & Styling----------------------------------------- */
+/* left column internal layout & Styling----------------------------------------------- */
 /* user info */
 .user-info{
     align-items: center;
@@ -213,7 +213,7 @@ main{
     cursor: pointer;
 }
 
-/* main styling ------------------------------------------------------------------------- */
+/* Right Column & main styling -------------------------------------------------------- */
 .contact-info p{
     font-size: 15px;
     color: #B1B1B1;
@@ -254,7 +254,7 @@ main{
 .reciv{
     background-color: #fff;
     align-self: start;
-    text-align: right;
+    text-align: left;
 }
 
 .sent span{

@@ -189,26 +189,30 @@ createApp({
 
         sendMessage(){
             const messageInput = this.newMessage;
-            const newObjMessage = {
-                    date: '10/01/2020 15:30:55',
-                    message: messageInput,
-                    status: 'sent'
-                }
-            this.contacts[this.activeIndex].messages.push(newObjMessage);
-            this.newMessage="";
-            this.newActiveIndex = this.activeIndex;
+            const trimmedMessage = messageInput.trim();
+            if(trimmedMessage !== ''){
+                const newObjMessage = {
+                        date: '10/01/2020 15:30:55',
+                        message: messageInput,
+                        status: 'sent'
+                    }
+                this.contacts[this.activeIndex].messages.push(newObjMessage);
+                this.newMessage="";
+                this.newActiveIndex = this.activeIndex;
+                
+                setTimeout(()=>{
+                    const actualIndex = this.newActiveIndex
+                    const response = "ok va bene";
+                    const responseObj = {
+                        date: '10/01/2020 15:30:55',
+                        message: response,
+                        status: 'received',
+                    }
+                    this.contacts[actualIndex].messages.push(responseObj);
+                }, 2000 );
+            }
             //ATTENZIONE---------------------------------------------------------------------------------------------
             //ho provato a generare la funzione all esterno di setTimeout e richiamandola in seguito, la funzione è la stessa contenuta all interno.. solo che richiamandola non funzionava
-            setTimeout(()=>{
-                const actualIndex = this.newActiveIndex
-                const response = "ok va bene";
-                const responseObj = {
-                    date: '10/01/2020 15:30:55',
-                    message: response,
-                    status: 'received',
-                }
-                this.contacts[actualIndex].messages.push(responseObj);
-            }, 2000 );
         },
     },
 }).mount("#app")
